@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { Wallet } from "lucide-react";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -9,7 +12,7 @@ const Navbar = () => {
       transition={{ duration: 0.6 }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4 bg-background/80 backdrop-blur-md border-b border-border/50"
     >
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate("/")}>
         <Wallet className="w-6 h-6 text-primary" />
         <span className="text-xl font-bold font-display text-foreground tracking-wider">PAY</span>
       </div>
@@ -27,10 +30,16 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <button className="text-sm font-medium text-foreground hover:text-primary transition-colors">
+        <button
+          onClick={() => navigate("/login")}
+          className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+        >
           Log In
         </button>
-        <button className="px-5 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:bg-lime-glow transition-colors">
+        <button
+          onClick={() => navigate("/signup")}
+          className="px-5 py-2 text-sm font-semibold rounded-full bg-primary text-primary-foreground hover:bg-lime-glow transition-colors"
+        >
           Sign up
         </button>
       </div>

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import { CheckCircle } from "lucide-react";
 import phoneTransfer from "@/assets/phone-transfer.png";
 import phonePayments from "@/assets/phone-payments.png";
@@ -12,6 +13,8 @@ const avatars = [
 ];
 
 const HeroSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen bg-hero-gradient overflow-hidden pt-24">
       {/* Lime glow */}
@@ -38,7 +41,10 @@ const HeroSection = () => {
           </p>
 
           <div className="mt-8 flex items-center gap-6">
-            <button className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-lime-glow transition-all hover:scale-105">
+            <button
+              onClick={() => navigate("/signup")}
+              className="px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:bg-lime-glow transition-all hover:scale-105"
+            >
               Get Started
             </button>
 
